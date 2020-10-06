@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int prime(int n)                                          //Function prototype
+{
+	int i, isPrime = 1;
+	for(i = 2; i <= n/2; ++i)                               //Checking whether the number is prime or not 
+	{
+		if(n % i == 0)
+		{
+			isPrime = 0;
+			break;
+		}
+	}
+    return isPrime;                              
+}
+int main()                                                 //Main function
+{
+	int i,num;
+	cout<<"Enter a positive integer: ";
+	cin>>num;
+  for(i=2;i<=num/2;i++)
+	{
+		if (prime(i)==1)                                       //Calling function for 'i'
+		{
+			if (prime(num - i)==1)                               //Calling function for 'num - i'
+			{
+				cout<<num<<" = "<<i<<" + "<<(num - i)<<endl;       //Printing out the result
+			}
+		}
+	}
+	return 0;
+}
